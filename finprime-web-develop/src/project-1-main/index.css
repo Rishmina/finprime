@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Inter font settings */
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+}
+
+/* Font weight utility classes */
+.font-inter-thin {
+  font-weight: 100;
+}
+.font-inter-extralight {
+  font-weight: 200;
+}
+.font-inter-light {
+  font-weight: 300;
+}
+.font-inter-regular {
+  font-weight: 400;
+}
+.font-inter-medium {
+  font-weight: 500;
+}
+.font-inter-semibold {
+  font-weight: 600;
+}
+.font-inter-bold {
+  font-weight: 700;
+}
+.font-inter-extrabold {
+  font-weight: 800;
+}
+.font-inter-black {
+  font-weight: 900;
+}
+
+@keyframes fadeInRightSmall {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@font-face {
+  font-family: 'Khula';
+  src: url('./components/Fonts/Gilroy-Bold.ttf') format('truetype');
+  font-weight: normal;
+  /* You can set different weights if needed */
+  font-style: normal;
+  /* Or italic if applicable */
+}
+
+
+/* servicesection underline animation css */
+
+.hover-underline-animation {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  /* This is the thickness of the underline */
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00bcd4, #00008b);
+  /* You can change the underline color here */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  padding-top: 2px;
+  /* Adds padding between text and underline */
+}
+
+
+
+.hover-underline-animation1 {
+  position: relative;
+
+}
+
+.hover-underline-animation1::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  /* This is the thickness of the underline */
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00bcd4, #00008b);
+  /* You can change the underline color here */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation1:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  padding-top: 1px;
+  /* Adds padding between text and underline */
+}
+
+/* card design  service section  */
+
+
+.wrapper {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.card {
+  height: 420px;
+  padding: 1.5rem;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+}
+
+.card:hover {
+  transform: translateY(20px);
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.card:hover:before {
+  opacity: 1;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.info {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+
+/* navbar hover  */
+
+
+
+.link-115 {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+
+  margin: 0 5px;
+  position: relative;
+}
+
+.link-115::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00bcd4, #00008b);
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  border-radius: 50%;
+
+}
+
+.link-115:hover::before {
+  width: 100%;
+  border-radius: 50%;
+}
+
+
+.indicator_navbar::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00bcd4, #00008b);
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  border-radius: 50%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+
+
+/* responsive */
+
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+    /* Adjust the jump height */
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.jump-effect {
+  animation: jump 0.5s ease;
+  /* Adjust the duration and easing as needed */
+}
+
+/* partner card hover */
+.rotate-div {
+  transition: transform 0.6s ease;
+  /* Smooth transition for rotation */
+}
+
+.rotate-div:hover {
+  transform: rotate(180deg);
+  /* Rotate on hover */
+}
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/* Tailwind CSS + Custom Styles for Loader */
+.loader {
+  @apply text-transparent;
+  background: conic-gradient(#fff 0 0) 0/0% 100% no-repeat text;
+  animation: l1 2s linear infinite;
+}
+
+@keyframes l1 {
+  to {
+    background-size: 120% 100%;
+  }
+}
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  display: inline-flex;
+  gap: 100px;
+  animation: scrollImages 20s linear infinite;
+}
+
+body::before {
+    display: none;
+    content: '';
+    position: fixed;
+    width: 200px;
+    height: 550px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #06b6d4;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    z-index: -1;
+}
+
+@media (max-width: 1024px) {
+    body::before {
+        display: none;
+    }
+}
