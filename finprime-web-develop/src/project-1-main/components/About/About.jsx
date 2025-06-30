@@ -78,24 +78,29 @@ const About = ({ toggleSpeakExpert }) => {
                 <Atext />
                 <AboutAccordion />
                 {/* People and Culture Section */}
-                <div className="relative w-full flex justify-center items-center my-12">
-                  <img
-                    src={menuAboutFull}
-                    alt="Our People and Culture"
-                    className="w-full max-h-[420px] object-cover rounded-lg shadow"
-                  />
-                  {/* Top right label */}
-                  <div className="absolute top-6 right-8 px-6 py-2 rounded-full text-white text-lg font-semibold" style={{background: 'linear-gradient(90deg, #191F3A 60%, #06B6D4 100%)'}}>
-                    Our People and Culture
-                  </div>
-                  {/* Bottom overlay text */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] bg-black bg-opacity-60 px-6 py-3 rounded text-white text-xl text-center font-normal" style={{background: 'linear-gradient(90deg, #191F3A 60%, #06B6D4 100%)', opacity: 0.85}}>
-                    Trust grows when your time Might lead them to feel more empowered.
+                <div
+                  className="relative w-full my-12 h-[50vh] bg-cover bg-center bg-fixed"
+                  style={{ backgroundImage: `url(${menuAboutFull})` }}
+                >
+                  <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                  {/* Container for content */}
+                  <div className="relative z-10 h-full flex flex-col justify-between items-center py-8 px-4">
+                    {/* Top right label */}
+                    <div className="self-end px-6 py-2 rounded-lg text-white text-lg font-semibold font-['Kulim_Park']" style={{ background: 'linear-gradient(90deg, #191F3A 60%, #06B6D4 100%)' }}>
+                      Our People and Culture
+                    </div>
+
+                    {/* Bottom overlay text */}
+                    <div className="w-[90%] max-w-4xl bg-black bg-opacity-60 px-6 py-3 text-white text-xl text-center font-normal font-['Kulim_Park']" style={{ background: 'linear-gradient(90deg, #191F3A 60%, #06B6D4 100%)', opacity: 0.85 }}>
+                      Trust grows when your time Might lead them to feel more empowered.
+                    </div>
                   </div>
                 </div>
                 <Text3 />
                 <Expert />
-                <Choose />
+                <div className="mt-28">
+                  <Choose />
+                </div>
                 <Footer />
                 <CookieBanner />
                 <WhatsAppIcon />

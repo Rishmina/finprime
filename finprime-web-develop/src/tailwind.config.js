@@ -3,7 +3,7 @@ import aspectRatio from '@tailwindcss/aspect-ratio';
 
 export default {
   content: [
-    "./project-1-main/index.html",
+    "./project-1-/index.html",
     "./project-1-main/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

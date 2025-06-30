@@ -117,31 +117,33 @@ const DropDown = () => {
     }
   };
 
-  const RoundedItem = ({ text, isLong = false }) => (
-    <div 
-      className={`relative overflow-hidden ${isLong ? 'w-[450px]' : 'w-[380px]'}`}
-      style={{ height: '40px', display: 'flex', alignItems: 'center' }}
-    >
+  const RoundedItem = ({ text, isLong = false }) => {
+    return (
       <div 
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(90deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05))',
-          border: '1px solid rgba(6, 182, 212, 0.3)',
-          borderRadius: '40px'
-        }}
-      />
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, transparent 70%)',
-          filter: 'blur(8px)',
-          pointerEvents: 'none',
-          borderRadius: '40px'
-        }}
-      />
-      <span className="relative z-10 text-white font-inter text-[12px] px-6">{text}</span>
-    </div>
-  );
+        className={`relative overflow-hidden inline-flex w-auto max-w-[90vw]`}
+        style={{ height: '48px', alignItems: 'center' }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05))',
+            border: '1px solid rgba(6, 182, 212, 0.3)',
+            borderRadius: '40px'
+          }}
+        />
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, transparent 70%)',
+            filter: 'blur(8px)',
+            pointerEvents: 'none',
+            borderRadius: '40px'
+          }}
+        />
+        <span className="relative z-10 text-white font-inter text-[14px] px-8 py-3 whitespace-nowrap text-center">{text}</span>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -172,13 +174,13 @@ const DropDown = () => {
           <div className="relative">
             <div 
               ref={cardRowRef}
-              className="flex overflow-x-auto hide-scrollbar gap-6"
+              className="grid grid-cols-1 md:flex md:overflow-x-auto hide-scrollbar gap-8"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {Rquestion.map((item, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[369px] h-[494px] p-8 font-inter flex flex-col justify-start"
+                  className="w-full h-auto md:w-[369px] md:h-[494px] p-8 font-inter flex flex-col justify-start md:flex-shrink-0"
                   style={item.bgImage ? {
                     backgroundImage: `url(${item.bgImage})`,
                     backgroundSize: 'cover',
@@ -187,8 +189,8 @@ const DropDown = () => {
                     backgroundColor: cardColors[index % cardColors.length]
                   }}
                 >
-                  <div className="border border-white/50 rounded-full py-3 px-6 mb-8 self-center bg-black/20 backdrop-blur-sm">
-                    <h3 className='text-white font-kulim-park font-semibold text-base text-center tracking-wider whitespace-nowrap'>{item.question}</h3>
+                  <div className="border border-white/50 rounded-full py-3 px-6 mb-8 self-start bg-black/20 backdrop-blur-sm">
+                    <h3 className='text-white font-kulim-park font-semibold text-base text-left tracking-wider whitespace-nowrap'>{item.question}</h3>
                   </div>
                   <p className="text-white text-base leading-relaxed text-left">{item.answer}</p>
                 </div>
@@ -196,7 +198,7 @@ const DropDown = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="hidden md:flex justify-center gap-4 mt-8">
               <button
                 onClick={() => scrollCards('left')}
                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
@@ -270,18 +272,18 @@ const DropDown = () => {
                       <RoundedItem text={section.items[0]} />
                       <RoundedItem text={section.items[1]} />
                     </div>
-                    <RoundedItem text={section.items[2]} />
+                    <div className="inline-flex"><RoundedItem text={section.items[2]} /></div>
                   </div>
                 ) : section.title === "System Setup & Transition" ? (
                   <div className="flex flex-col gap-4">
                     {section.items.map((item, itemIndex) => (
-                      <RoundedItem key={itemIndex} text={item} isLong={true} />
+                      <div className="inline-flex" key={itemIndex}><RoundedItem text={item} isLong={true} /></div>
                     ))}
                   </div>
                 ) : (
                   <div className="flex flex-col gap-4">
                     {section.items.map((item, itemIndex) => (
-                      <RoundedItem key={itemIndex} text={item} />
+                      <div className="inline-flex" key={itemIndex}><RoundedItem text={item} /></div>
                     ))}
                   </div>
                 )}
@@ -311,10 +313,10 @@ const DropDown = () => {
             </h3>
             <div className="flex flex-col gap-4">
               <div className="flex gap-4">
-                <RoundedItem text="Business insights and forecasting" />
-                <RoundedItem text="Regulatory guidance & audit support" />
+                <div className="inline-flex"><RoundedItem text="Business insights and forecasting" /></div>
+                <div className="inline-flex"><RoundedItem text="Regulatory guidance & audit support" /></div>
               </div>
-              <RoundedItem text="Scalability as your business grows" />
+              <div className="inline-flex"><RoundedItem text="Scalability as your business grows" /></div>
             </div>
           </div>
         </div>

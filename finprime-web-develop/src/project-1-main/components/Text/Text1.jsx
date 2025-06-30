@@ -32,16 +32,16 @@ const Text1 = () => {
 
   return (
 
-    <div className="mt-14 mb-14 sm:mt-24 sm:mb-24 lg:mt-44 lg:mb-56">
+    <div className="mt-14 mb-0 sm:mt-24 sm:mb-0 lg:mt-40 lg:mb-0 pl-24">
       <div
 
         ref={fadeElementRef}
         className={`my-[35px] sm:my-20 font-inter xl:px-12 lg:px-10 md:px-8 px-6 pt-4  ${hasFadedIn ? 'animate-fadeinbottom' : ''}`}>
         <h1
-          className='text-[34px] md:text-6xl leading-9 lg:text-6xl xl:text-8xl text-left'
+          className='text-[36px] md:text-6xl leading-9 lg:text-6xl xl:text-8xl text-left font-bold'
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 400,
+            fontFamily: 'inter, sans-serif',
+            fontWeight: 500,
             color: '#040404',
             fontSize: '50px',
           }}
@@ -49,16 +49,20 @@ const Text1 = () => {
           Committed to your business growth
         </h1>
         <h4
-          className='mt-6 sm:mt-14 mb-14 sm:mb-24 lg:mb-44 text-xs sm:text-xl lg:text-3xl text-left'
+          className='mt-2 sm:mt-5  lg:mb-46 text-xs sm:text-xl lg:text-3xl text-left'
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 400,
+            fontFamily: 'inter, sans-serif',
+            fontWeight: 300,
             color: '#000000',
           }}
         >
-          We Provide  Truly Prominent Accounting Services
+          We Provide Truly Prominent Accounting Services
         </h4>
-        <Certificates />
+        <hr className="mt-8 mb-6 sm:mb-12 lg:mb-16 border-t-2 border-D9D9D9-300 w-full" />
+
+        <div className="mt-0 mb-8 sm:mb-12 lg:mb-16">
+          <Certificates />
+        </div>
       </div>
     </div>
   );

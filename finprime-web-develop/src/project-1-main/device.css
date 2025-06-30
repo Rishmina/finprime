@@ -1,0 +1,51 @@
+
+/*Responsive Devices*/
+
+
+
+
+/*syt*/
+@media only screen and (min-width : 1920px) and (max-width : 2559px){}
+
+/*syt*/
+@media only screen and (min-width : 1600px) and (max-width : 1919px){
+    .hero-ban-fin h3{
+        font-size: 10px!important;
+     
+    }
+
+
+
+    
+}
+
+/*syt*/
+@media only screen and (min-width : 1440px) and (max-width : 1599px){}
+
+/*syt*/
+@media only screen and (min-width : 1366px) and (max-width : 1439px){}
+
+/*syt*/
+@media only screen and (min-width : 1200px) and (max-width : 1365px){}
+
+
+/*Tab-syt*/
+@media only screen and (min-width : 1024px) and (max-width : 1199px){
+
+}
+
+
+/*Tab*/
+@media only screen and (min-width : 768px) and (max-width : 1023px){
+
+
+}
+
+
+/*Mob*/
+@media only screen and (min-width : 150px) and (max-width : 767px){}
+
+
+@media only screen and (max-width: 375px) {}
+
+@media only screen and (max-width: 320px) {}

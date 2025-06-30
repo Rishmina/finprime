@@ -90,7 +90,7 @@ const FreeConsultation = () => {
   return (
     <div className='relative overflow-hidden'>
       <Navbar />
-      <div className="relative pt-40 pb-24">
+      <div className="relative pt-60 pb-40">
         <div className="relative z-10 container mx-auto px-4 text-black">
           <div className="text-left">
             <p className="mb-4 text-lg">Get Your Free Consultation</p>

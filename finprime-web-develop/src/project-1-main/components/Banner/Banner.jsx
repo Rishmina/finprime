@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import './banner.css';
 import youtubeIcon from '../../images/youtube.png';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   const playerRef = useRef(null);
@@ -76,23 +77,24 @@ const Banner = () => {
           
           {/* YouTube Redirect Button */}
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <button 
+            <Link
+              to="/youtube-broadcast-channel"
               className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-white shadow-lg
                 hover:bg-opacity-90 transition-all duration-300"
-              onClick={handleYouTubeClick}
             >
               <FaPlay className="text-red-600 text-2xl sm:text-3xl md:text-4xl ml-1 sm:ml-2" />
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Text and Logo */}
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 flex items-center space-x-4 sm:space-x-6 md:space-x-8 z-20">
-            <img 
-              src={youtubeIcon} 
-              alt="YouTube" 
-              className="w-16 sm:w-20 md:w-24 cursor-pointer hover:opacity-90 transition-opacity" 
-              onClick={handleYouTubeClick}
-            />
+            <Link to="/youtube-broadcast-channel">
+              <img 
+                src={youtubeIcon} 
+                alt="YouTube" 
+                className="w-16 sm:w-20 md:w-24 cursor-pointer hover:opacity-90 transition-opacity" 
+              />
+            </Link>
             <div className="text-white font-['Roboto']">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight">Your</h2>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium leading-tight">concerns</h2>

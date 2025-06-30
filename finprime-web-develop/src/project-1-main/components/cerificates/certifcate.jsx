@@ -7,9 +7,9 @@ import certificate5 from '../../images/certificates/image5.jpg';
 
 function certifcate() {
     return (
-        <div class="w-[90vw] mt-[50px] md:mt-[100px] mx-auto flex flex-wrap justify-around gap-4 p-4 bg-white">
-            <img src={certificate1} class="h-[100px] w-[100px] md:h-[200px] md:w-[200px] object-cover rounded" />
-            <img src={certificate2} class="h-[100px] w-[100px] md:h-[200px] md:w-[200px] object-cover rounded" />
+        <div class="w-[90vw] mt-8 mx-auto flex flex-wrap justify-around gap-2 p-4 bg-white pl-0 mb-0">
+            <img src={certificate1} class="h-[100px] w-[100px] md:h-[300px] md:w-[200px] object-cover rounded" />
+            <img src={certificate2} class="h-[100px] w-[100px] md:h-[300px] md:w-[200px] object-cover rounded" />
             <img src={certificate3} class="h-[100px] w-[100px] md:h-[200px] md:w-[200px] object-cover rounded" />
             <img src={certificate4} class="h-[100px] w-[100px] md:h-[200px] md:w-[200px] object-cover rounded" />
             <img src={certificate5} class="h-[100px] w-[100px] md:h-[200px] md:w-[200px] object-cover rounded" />

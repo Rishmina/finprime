@@ -25,13 +25,13 @@ const OurSection = () => {
   ];
 
   return (
-    <div id="ceo" className="mt-4 mb-8 px-2 sm:px-0 md:mx-8 lg:mx-10 xl:mx-12">
-      <div className="pt-4 pb-2">
+    <div id="ceo" className="mt-4 mb-16 px-2 sm:px-0 md:mx-8 lg:mx-10 xl:mx-12 mr-10">
+      <div className="pt-16 pb-2 ml-4">
         <div className="flex flex-row justify-between items-start mx-2 mb-4">
           <h4 className="text-xl font-semibold font-inter text-left">Relax. We've got you.</h4>
-          <h5 className="text-xl font-semibold font-inter text-right">The best results</h5>
+          <h5 className="text-xl font-bold font-inter text-right">The best results</h5>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-start">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-start ">
           {cardData.map((card, index) => (
             <Link to={card.link} className="w-full sm:w-1/3" key={index}>
               <Card title={card.title} image={card.image} alt={card.alt} />

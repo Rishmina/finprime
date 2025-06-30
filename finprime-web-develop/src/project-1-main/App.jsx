@@ -49,6 +49,7 @@ import PartnerWithItem from './components/PartnerWith/partnerwith';
 import { IoIosClose } from 'react-icons/io';
 import Refer from './components/Refer/Refer';
 import newSectionImage from './images/image.png';
+import YoutubeBroadcast from './components/YoutubeBroadcast/YoutubeBroadcast';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -120,9 +121,8 @@ const App = () => {
 
   const [isSpeakExpert, setIsSpeakExpert] = useState(false);
 
-  const toggleSpeakExpert = () => {
+  const toggleSpeakExpert = () => 
     setIsSpeakExpert(!isSpeakExpert);
-  };
 
   const [formData, setFormData] = useState({
     name: '',
@@ -259,6 +259,7 @@ const App = () => {
         <Route path="/blogs/:slug" element={<BPost />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/offer" element={<Offer />} />
+        <Route path="/CEO" element={<CEO />} />
         <Route path="/:industriestitle/:subindustrytitle"
           element={
             <PageWrapper>
@@ -286,7 +287,9 @@ const App = () => {
         <Route path="/admin" element={<SideNavbar />} />
         <Route path="/maillist" element={<MailList />} />
         <Route path="/maillist2" element={<MailList2 />} />
-        <Route path="/refer-and-earn" element={<Refer />} />
+        <Route path="/refer-and-earn" element={<PageWrapper><Refer /></PageWrapper>} />
+        <Route path="/youtube-broadcast-channel" element={<PageWrapper><YoutubeBroadcast /></PageWrapper>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
         </div>
     </Router>

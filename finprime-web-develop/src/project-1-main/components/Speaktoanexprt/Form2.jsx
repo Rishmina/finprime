@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Services } from '../Services';
-import img1 from '../../images/Navbar/finprime-logo.svg'
+import finLogo from '../../images/Navbar/fin.png';
 import bgimg from '../../images/Banner/enquiry.jpg';
 import emailjs from 'emailjs-com'; // Import EmailJS
 
@@ -185,7 +185,7 @@ const Form2 = () => {
     <div className="max-w-2xl mx-5 sm:mx-auto top-20  border pb-10  p-8 bg-brandBlue shadow-lg rounded-lg relative">
       
 
-      <img src={img1} alt="Logo" className='h-20 sm:h-32 lg:h-20 mx-auto mb-12 mt-5' />
+      <img src={finLogo} alt="Finprime Logo" className='h-20 sm:h-32 lg:h-20 mx-auto mb-12 mt-5' />
       {/* <h4 className="text-2xl font-bold mb-2 text-center ">Enquiry Form</h4> */}
       {/* <div className='border mb-12 border-gray-400'></div> */}
 

@@ -22,23 +22,23 @@ const Refer = () => {
     return (
         <div className="bg-white font-sans">
             <Navbar />
-            <div className="max-w-screen-xl mx-auto py-40 mt-16">
+            <div className="max-w-screen-xl mx-auto py-20 md:py-40 mt-8 md:mt-16 px-4">
                 <div className="flex flex-wrap -mx-4">
                     {/* Left Column */}
                     <div className="w-full lg:w-3/5 px-4">
                         <div className="mb-12">
-                            <h1 className="text-3xl font-kulim-park mb-4 font-light">Earn Up Rewards<br />With Every Successful Referral</h1>
+                            <h1 className="text-2xl font-kulim-park mb-4 font-extralight">Earn Up Rewards<br />With Every Successful Referral</h1>
                             <p className="text-gray-600 mb-8">
                                 Do you know someone who could benefit from setting up their business with SPC Free Zone? With our referral program, you can now leverage your connections and get rewarded handsomely!
                             </p>
-                            <h2 className="text-2xl font-bold mb-4">How it works:</h2>
+                            <h2 className="text-1xl font-semibold mb-4">How it works:</h2>
                             <ul className="text-gray-600 space-y-2 text-sm">
                                 <li><span className="mr-2 text-xs">&gt;</span>Fill in the referral form on this page.</li>
                                 <li><span className="mr-2 text-xs">&gt;</span>Our team will reach out to you.</li>
                                 <li><span className="mr-2 text-xs">&gt;</span>Enjoy your rewards after the successful completion of the deal.</li>
                             </ul>
                         </div>
-                        <div className="flex flex-wrap -mx-3 mt-20a">
+                        <div className="flex flex-wrap -mx-3 mt-12 md:mt-20">
                             <ArticleCard image="https://via.placeholder.com/400x500/555555/FFFFFF/" name="Automotive" />
                             <ArticleCard image="https://via.placeholder.com/400x500/555555/FFFFFF/" name="Beauty Brands" />
                             <ArticleCard image="https://via.placeholder.com/400x500/555555/FFFFFF/" name="Technology" />
@@ -47,7 +47,7 @@ const Refer = () => {
                     </div>
 
                     {/* Right Column (Form) */}
-                    <div className="w-full lg:w-2/5 px-8 flex flex-col -mt-12">
+                    <div className="w-full lg:w-2/5 px-4 md:px-8 flex flex-col mt-12 lg:-mt-12">
                         <div 
                             className="rounded-[2.5rem] p-6 text-white shadow-2xl"
                             style={{ background: 'linear-gradient(175deg, #06B6D4, #1A1F39 50%)' }}

@@ -7,8 +7,10 @@ import axios from 'axios';
 
 import { FaFacebookF, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { RiLinkedinFill } from "react-icons/ri";
-import { FaInstagramSquare } from "react-icons/fa";
+import { FaInstagramSquare, FaCamera } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { MdCenterFocusStrong } from 'react-icons/md';
+import finLogo from '../../images/Navbar/fin.png';
 
 const Footer = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
@@ -55,15 +57,15 @@ const Footer = () => {
             </h4>
           </div>
           <div className="flex justify-center w-full py-4 sm:w-1/2 sm:justify-end">
-            <img src={img} alt="Fin Frame Logo" className='w-[250px] md:w-[300px]' />
+            <img src={finLogo} alt="Finprime Logo" className='w-[250px] md:w-[300px]' />
           </div>
         </div>
         <hr className="border-t border-gray-900" />
 
         {/* -------------------------------------------------------3-column section---------------------------------------------------------*/}
-        <div className="w-full flex flex-row justify-start items-start gap-8 mb-8 pl-0" >
+        <div className="w-full flex flex-col md:flex-row justify-start items-start gap-8 mb-8 pl-0">
           {/* Company Profile Card */}
-          <div style={{ width: '300px', height: '455px', position: 'relative' }}>
+          <div className="w-full md:w-[300px] h-auto md:h-[455px] relative">
             <img src={companyProfileImage} alt="Company Profile" className="w-full h-full object-contain" />
             <button
               onClick={() => window.open('/pdf/finprime-company-profile.pdf')}
@@ -75,17 +77,13 @@ const Footer = () => {
             >
               <span className="pl-2">FinPrime Profile</span>
               <div className="flex items-center justify-center ml-8">
-                <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="7" width="24" height="10" rx="2" stroke="white" strokeWidth="2"/>
-                  <rect x="11" y="10" width="6" height="4" rx="1" fill="white"/>
-                  <rect x="13.5" y="12" width="2" height="1" rx="0.5" fill="#06B6D4"/>
-                </svg>
+                <MdCenterFocusStrong size={24} />
               </div>
             </button>
           </div>
 
           {/* Banking Services Card */}
-          <div style={{ width: '300px', height: '455px', position: 'relative' }}>
+          <div className="w-full md:w-[300px] h-auto md:h-[455px] relative">
             <img src={bankImage} alt="Banking Services" className="w-full h-full object-contain" />
             <button
               onClick={() => window.open('/pdf/finprime-banking-services.pdf')}
@@ -97,17 +95,13 @@ const Footer = () => {
             >
               <span className="whitespace-nowrap">FinPrime Banking Services</span>
               <div className="flex items-center justify-center">
-                <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="7" width="24" height="10" rx="2" stroke="white" strokeWidth="2"/>
-                  <rect x="11" y="10" width="6" height="4" rx="1" fill="white"/>
-                  <rect x="13.5" y="12" width="2" height="1" rx="0.5" fill="#06B6D4"/>
-                </svg>
+                <MdCenterFocusStrong size={24} />
               </div>
             </button>
           </div>
 
           {/* Testimonial Section */}
-          <div className="flex lg:w-3/3" style={{ width: '750px', height: '395px', paddingTop: '3.5rem' }}>
+          <div className="flex flex-col w-full md:w-[750px] md:h-[395px] pt-0 md:pt-14">
             {loading ? (
               <p className="text-center">Loading testimonials...</p>
             ) : error ? (
@@ -118,20 +112,18 @@ const Footer = () => {
               <div className="w-full bg-white pt-8">
                 {/* Display only the current testimonial */}
                 <div key={testimonials[currentTestimonialIndex].id}>
-                  <div className="lg:flex">
+                  <div className="flex flex-col lg:flex-row">
                     <img
-                      src={`https://finprimeconsulting.com/${testimonials[currentTestimonialIndex].image_path}`}
+                      src={`https://finprimeconsulting.com/${testimonials[currentTestimonialIndex].imagen_path}`}
                       alt={testimonials[currentTestimonialIndex].author_name}
-                      className="object-contain object-top w-[350px] h-[200px] mx-auto lg:mx-0"
+                      className="object-contain object-top w-full md:w-[350px] h-auto md:h-[200px] mx-auto lg:mx-0"
                     />
 
-                    <div className="flex flex-col justify-between items-center sm:items-center md:items-center lg:items-start"
-                      style={{ marginTop: '10px', marginLeft: '20px', marginRight: '10px' }}
-                    >
-                      <p className="text-gray-500 text-center mt-20 mb-14 text-xs font-inter px-4">
+                    <div className="flex flex-col justify-between items-center text-center lg:items-start lg:text-left mt-4 lg:mt-10 lg:ml-5 lg:mr-2.5">
+                      <p className="text-gray-500 mb-4 text-xs font-inter px-4">
                         {testimonials[currentTestimonialIndex].content}
                       </p>
-                      <div className="flex flex-col items-center text-center font-inter">
+                      <div className="flex flex-col items-center lg:items-start font-inter">
                         <p className="font-semibold text-sm text-gray-500">
                           {testimonials[currentTestimonialIndex].author_name}
                         </p>
@@ -168,42 +160,32 @@ const Footer = () => {
 
         {/* -------------------------------------------------------links and address---------------------------------------------------------*/}
         <div className="flex flex-col w-full pt-8">
-          <div className="mb-6 font-inter">
+          <div className="mb-6 font-inter text-center md:text-left">
             <h4 className="text-base font-semibold mb-2">Headquarters</h4>
             <p className="text-white text-xs mb-1">Suite 1203, Floor 12A, DAMAC Executive Bay, Business Bay, Dubai, UAE</p>
             <p className="text-white text-xs">Phone: +971 58 259 3543</p>
           </div>
 
           {/* Social media and email section */}
-          <div className="flex items-center justify-end gap-4 mb-8">
-            <li className='flex space-x-2'>
-               <div className="flex space-x-1 bg-white bg-opacity-55 rounded-[5px] border border-opacity-20 p-1">
-                 <button className="hidden xl:block px-2 py-1 rounded-sm shadow-black text-[12px] tracking-[1px] transition-all duration-300 ease-out bg-gradient-to-r from-brandBlue to-cyan-500 text-white">Follow</button>
-                 <a href="https://www.facebook.com/finprimeconsulting" aria-label="Facebook" className="p-1 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:border-opacity-10 hover:from-brandBlue hover:to-cyan-500 hover:text-white">
-                   <FaFacebookF size={14} />
-                 </a>
-                 <a href="https://x.com/FinPrimeConsult" aria-label="Twitter" className="p-1 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white">
-                   <FaXTwitter size={14} />
-                 </a>
-                 <a href="https://www.linkedin.com/company/finprimeconsulting/" aria-label="LinkedIn" className="p-1 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white">
-                   <RiLinkedinFill size={14} />
-                 </a>
-                 <a href="https://www.instagram.com/finprimeconsulting/" aria-label="Instagram" className="p-1 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:border-opacity-10 hover:to-cyan-500 hover:text-white hover:border-opacity-10">
-                   <FaInstagramSquare size={14} />
-                 </a>
-                 <a href="https://www.youtube.com/@FinPrimeConsulting" aria-label="YouTube" className="p-1 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white hover:border-opacity-10">
-                   <FaYoutube size={14} />
-                 </a>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-4 mb-8">
+            <ul className='flex space-x-2'>
+               <div className="flex items-center space-x-2 bg-white bg-opacity-55 rounded-xl border border-opacity-20 px-4 py-2">
+                 <button className="hidden xl:block px-3 py-1 rounded-sm shadow-black text-[14px] tracking-[1px] transition-all duration-300 ease-out bg-gradient-to-r from-brandBlue to-cyan-500 text-white">Follow</button>
+                 <a href="https://www.facebook.com/finprimeconsulting" aria-label="Facebook" className="p-1.5 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:border-opacity-10 hover:from-brandBlue hover:to-cyan-500 hover:text-white"><FaFacebookF size={16} /></a>
+                 <a href="https://x.com/FinPrimeConsult" aria-label="Twitter" className="p-1.5 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white"><FaXTwitter size={16} /></a>
+                 <a href="https://www.linkedin.com/company/finprimeconsulting/" aria-label="LinkedIn" className="p-1.5 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white"><RiLinkedinFill size={16} /></a>
+                 <a href="https://www.instagram.com/finprimeconsulting/" aria-label="Instagram" className="p-1.5 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white hover:border-opacity-10"><FaInstagramSquare size={16} /></a>
+                 <a href="https://www.youtube.com/@FinPrimeConsulting" aria-label="YouTube" className="p-1.5 text-black transition-all duration-300 ease-out bg-white rounded-full shadow-black hover:bg-gradient-to-r hover:from-brandBlue hover:border-opacity-10 hover:to-cyan-500 hover:text-white hover:border-opacity-10"><FaYoutube size={16} /></a>
                </div>
-              </li>
+              </ul>
             <a href="mailto:info@finprimeconsulting.com" 
-               className="px-4 py-1 text-sm bg-gradient-to-r from-[#1A1F39] to-[#06B6D4] rounded-full text-white hover:shadow-lg transition-all">
+               className="px-6 py-2 text-base bg-gradient-to-r from-[#1A1F39] to-[#06B6D4] rounded-full text-white hover:shadow-lg transition-all">
                info@finprimeconsulting.com
             </a>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap gap-6 mb-6 text-xs">
+          <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-6 text-xs">
             <Link to="/" className="text-white hover:text-cyan-500">Home</Link>
             <Link to="/about" className="text-white hover:text-cyan-500">About</Link>
             <Link to="/blogs" className="text-white hover:text-cyan-500">Blogs</Link>
@@ -216,7 +198,7 @@ const Footer = () => {
 
           <hr className="border-t border-gray-800 mb-8" />
 
-          <div className="text-xs text-gray-400 pb-8">
+          <div className="text-xs text-center md:text-left text-gray-400 pb-8">
             © 2019 - 2025 Finprime Consulting, Presented by{' '}
             <a href="https://zorroarabemirates.com" className="text-[#FFD700] hover:text-cyan-500 transition-colors">
               Zorro Arab Emirates

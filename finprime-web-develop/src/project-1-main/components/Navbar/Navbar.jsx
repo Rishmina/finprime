@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiXMark } from 'react-icons/hi2';
-import logoWhite from '../../images/logo-white.svg';
-import logoDark from '../../images/white-dark.png';
-import textLogoWhite from '../../images/Navbar/finprime-logo-white.png';
-import textLogoDark from '../../images/Navbar/logo-dark.png';
+import logoWhite from '../../images/Navbar/finprime-logo.svg';
+import logoDark from '../../images/Navbar/white-dark.png';
 import img1 from '../../images/menubar/contact.jpg';
 import img2 from '../../images/menubar/blog.jpg';
 import img3 from '../../images/menubar/home.jpg';
@@ -21,6 +19,10 @@ import { RiArrowLeftSLine } from 'react-icons/ri';
 import companyProImg from '../../images/company-pro.png';
 import { IoIosClose } from 'react-icons/io';
 import emailjs from "emailjs-com";
+import companyProfileImage from '../../images/company-pro.png';
+import { MdCenterFocusStrong } from 'react-icons/md';
+import finLogo from '../../images/Navbar/fin.png';
+import logoLanding from '../../images/Navbar/p.svg';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,8 +39,10 @@ const Navbar = () => {
                                location.pathname === '/refer-and-earn' || 
                                location.pathname === '/freeconsultation' ||
                                location.pathname.includes('external-audit');
-    const logoSrc = shouldShowDarkLogo ? logoDark : logoWhite;
-    const textLogoSrc = shouldShowDarkLogo ? textLogoDark : textLogoWhite;
+    const logoSrc =
+        location.pathname === '/' || location.pathname === '/about'
+            ? logoLanding
+            : logoDark;
 
     // Toggle overlay menu
     const toggleDropdown = () => {
@@ -72,7 +76,6 @@ const Navbar = () => {
     const [isAnswerVisible, setIsAnswerVisible] = useState(false);
     const [isServiceOpen, setIsServiceOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
-
     const handleMouseEnter = () => {
         if (closeTimeout.current) {
             clearTimeout(closeTimeout.current);
@@ -198,41 +201,120 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Logo with both logos moving: main logo slides left, text logo slides in from right */}
+            {/* Logo with Accenture-style animation: main logo moves to top right and shrinks, text logo animates in */}
             <div className="fixed z-[9999] top-8 left-8">
                 <Link
                     to="/"
-                    className="relative inline-flex items-center h-14 pl-4"
+                    className="relative inline-block h-14 w-[180px] border-none outline-none"
+                    style={{ minWidth: 140, border: 'none', outline: 'none' }}
                     onMouseEnter={() => setIsLogoHovered(true)}
                     onMouseLeave={() => setIsLogoHovered(false)}
                     onTouchStart={() => setIsLogoHovered(true)}
                     onTouchEnd={() => setIsLogoHovered(false)}
                 >
-                    {/* Main Logo (slides left) */}
                     <img
                         src={logoSrc}
                         alt="Finprime Logo"
                         className={`
-                            h-14 w-auto transition-all duration-500
-                            ${isLogoHovered ? '-translate-x-8' : 'translate-x-0'}
+                            absolute  top-0
+                            transition-all duration-500 ease-in-out
+                            h-16 w-auto border-none outline-none
+                            ${isLogoHovered
+                                ? 'transform scale-50 left-8 -translate-y-9 z-20'
+                                : 'transform scale-100 translate-x-0 translate-y-0 z-10'}
                         `}
-                        style={{ zIndex: 2 }}
+                        style={{ pointerEvents: 'none', border: 'none', outline: 'none' }}
                     />
-                    {/* Text Logo (slides in from right, larger and closer) */}
-                    <img
-                        src={textLogoSrc}
-                        alt="Finprime Text Logo"
-                        className={`
-                            h-24 w-auto ml-0.5 transition-all duration-500 object-contain
-                            ${isLogoHovered ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}
-                        `}
-                        style={{ zIndex: 1 }}
-                    />
-                        </Link>
-                    </div>
+                    {isLogoHovered && (
+                        <span
+                            className={`
+                                absolute left-0 top-0
+                                transition-all duration-500 ease-in-out
+                                h-12 w-auto
+                                flex items-center
+                                opacity-100 translate-x-0 z-10
+                            `}
+                            style={{ pointerEvents: 'none', height: '48px' }}
+                        >
+                            <img
+                                src={finLogo}
+                                alt="Finprime Text Logo"
+                                style={{ height: '48px', width: 'auto', border: 'none', outline: 'none' }}
+                                className="border-none outline-none"
+                            />
+                        </span>
+                    )}
+                </Link>
+            </div>
+
+            {/* Hamburger Menu - Mobile */}
+            <div className="fixed z-[9999] top-8 right-8 block md:hidden">
+                <button
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    className={`${shouldShowDarkLogo ? 'text-black' : 'text-white'} focus:outline-none flex items-center gap-2`}
+                >
+                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke={shouldShowDarkLogo ? 'black' : 'white'}>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <span>Menu</span>
+                </button>
+            </div>
+            {/* Hamburger Menu - Desktop */}
+            <div className="fixed z-[9999] top-8 right-8 hidden md:flex">
+                <button
+                    onClick={toggleDropdown}
+                    className={`${shouldShowDarkLogo ? 'text-black' : 'text-white'} focus:outline-none flex items-center gap-2`}
+                >
+                    <span className="flex flex-col justify-center items-start w-6 h-6 mr-2">
+                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'} mb-1`}></span>
+                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'} mb-1`}></span>
+                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'}`}></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <div 
+                    ref={dropdownRef}
+                    className="fixed inset-0 bg-black bg-opacity-90 z-[10000] flex flex-col items-center justify-center"
+                >
+                    <button 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="absolute top-8 right-8 text-white"
+                    >
+                        <HiXMark className="h-10 w-10" />
+                    </button>
+                    <ul className="text-center">
+                        {barmenu.map(item => (
+                            <li key={item.MenuId} className="my-6">
+                                <Link
+                                    to={item.links}
+                                    className="text-white text-3xl font-light hover:text-cyan-400 transition-colors duration-300"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {item.title}
+                                </Link>
+                            </li>
+                        ))}
+                         <li className="my-6">
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    handleMouseEnter();
+                                }}
+                                className="text-white text-3xl font-light hover:text-cyan-400 transition-colors duration-300"
+                            >
+                                Services
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            )}
 
             {/* Main Navbar - Centered */}
-            <nav className="fixed z-[9999] top-6 left-1/2 -translate-x-1/2 hidden lg:block">
+            <nav className="fixed z-[9999] top-6 left-1/2 -translate-x-1/2 hidden md:block">
                 <div className="w-[860px] h-[47px] bg-gradient-to-r from-[#1A1F39] to-[#06B6D4] rounded-[26px] px-8">
                     <div className="flex items-center justify-between h-full">
                     {/* Desktop Navigation */}
@@ -291,209 +373,115 @@ const Navbar = () => {
             </div>
             </nav>
 
-            {/* Hamburger menu button */}
-            <div className="fixed z-[9999] top-8 right-8">
-                <button
-                    onClick={toggleDropdown}
-                    className={`font-semibold flex items-center gap-x-3 text-[15px] group ${shouldShowDarkLogo ? 'text-black' : 'text-white'}`}
-                    aria-label="Toggle menu"
-                >
-                    <div className="flex flex-col space-y-1.5">
-                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'}`}></span>
-                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'}`}></span>
-                        <span className={`block w-6 h-0.5 ${shouldShowDarkLogo ? 'bg-black' : 'bg-white'}`}></span>
-                    </div>
-                    <span>Menu</span>
-                </button>
-            </div>
-
             {/* Mega menu dropdown rendered outside nav/flex for true full width */}
             {isServiceOpen && (
-                <div
-                    className="fixed left-0 right-0 top-[100px] w-screen text-black bg-white shadow-xl transition-opacity duration-300 ease-in-out transform z-[9998] animate-fadeinrightsmall visible"
-                    style={{ 
-                        minHeight: '400px', 
-                        borderRadius: '0', 
-                        padding: 0, 
-                        margin: 0, 
-                        width: '100vw', 
-                        display: 'flex', 
-                        alignItems: 'stretch',
-                        position: 'fixed',
-                        top: '53px' // Positioned right below the navbar
-                    }}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    {/* Left: Just text and image, no card styling */}
-                    <div 
-                        className="flex flex-col justify-center items-center w-[260px] min-w-[220px] max-w-[280px] mr-8 my-8"
+                <ul className='items-center hidden py-2 lg:flex'>
+                    <li
+                        className="py-6"
                         onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
                     >
-                        <h4
-                          style={{
-                            fontFamily: 'Roboto, sans-serif',
-                            fontWeight: 700,
-                            fontSize: '20px',
-                            color: '#000',
-                            textAlign: 'left',
-                            marginBottom: '12px',
-                            lineHeight: 1.2
-                          }}
-                        >
-                          Working with you,<br />
-                          not just for you
-                        </h4>
-                        <img
-                            src={companyProImg}
-                            alt="FinPrime Profile"
+                        <button className={`font-raleway hover:text-cyan-500 font-medium pb-2 tracking-[1px] text-sm lg:text-[20px] xl:text-[16px]
+                             ${location.pathname !== '/rightsolutions' &&
+                                location.pathname !== '/freeconsultation' &&
+                                location.pathname !== '/about' &&
+                                location.pathname !== '/' &&
+                                location.pathname !== '/blog' &&
+                                location.pathname !== '/offer' &&
+                                location.pathname !== '/contactus' &&
+                                !location.pathname.startsWith('/blog') ? 'link-115  font-bold' : null} ${(location.pathname !== '/' ? 'text-black' : 'text-white')}
+                             transition-colors duration-300`}
                             style={{
-                                width: '110px',
-                                height: 'auto',
-                                display: 'block',
-                                margin: '0 auto',
-                                borderRadius: '0 px'
-                            }}
-                        />
-                    </div>
-                    {/* Center: Main Services */}
-                    <div
-                        style={{ display: 'flex', flexDirection: 'row', width: '100%' }}
-                        onMouseEnter={handleMouseEnter}
-                    >
-                      {/* Service List */}
-                      <div className="flex flex-col justify-center w-[420px] min-w-[380px] max-w-[440px] py-8" style={{ zIndex: 2 }}>
-                        <ul>
-                          {menuItems.map((item, index) => (
-                            <li
-                              key={index}
-                              onMouseEnter={() => {
-                                handleMouseEnter();
-                                setHoveredIndex(index);
-                              }}
-                              style={hoveredIndex === index ? { background: '#1A1F39', color: '#fff', position: 'relative', zIndex: 3 } : {}}
-                            >
+                                padding: "4px",
+                                color: location.pathname !== '/' ? 'black' : 'white',
+                            }}>
+                            
+                        </button>
+
+                        <div
+                            className={`fixed left-0 w-full text-black bg-white mt-3 shadow-xl transition-opacity duration-300 ease-in-out transform ${isServiceOpen ? 'animate-fadeinrightsmall visible' : 'opacity-0 -translate-y-4 invisible'} font-roboto font-semibold z-[10001] top-[70px]`}
+                        >
+                            <div className="flex flex-col w-full h-full md:flex-row">
+                                {/* Column 1: Company Profile Card with heading and button overlay */}
+                                <div className="flex flex-col items-start justify-start pt-2 px-4 md:px-10 w-full md:w-[28%] min-w-[320px] max-w-[440px]">
+                                    <h4 className="mb-3 mt-1 text-xl font-bold font-roboto text-left w-full leading-snug">
+                                        Working with you,<br/>
+                                        not just for you
+                                    </h4>
+                                    <div className="relative w-[340px] h-[380px] mt-2">
+                                        <img src={companyProfileImage} alt="Company Profile" className="w-full h-full object-contain" />
+                                        <button
+                                            onClick={() => window.open('/pdf/finprime-company-profile.pdf', '_blank')}
+                                            className="absolute left-1/2 -translate-x-1/2 bottom-8 w-[230px] h-[48px] rounded-[24px] flex items-center justify-between px-8 text-white font-roboto text-base transition-all hover:shadow-lg"
+                                            style={{
+                                                background: 'linear-gradient(90deg, #1A1F39 0%, #06B6D4 100%)',
+                                                height: '48px',
+                                            }}
+                                        >
+                                            <span className="pl-2 font-semibold">FinPrime Profile</span>
+                                            <div className="flex items-center justify-center ml-4">
+                                                <MdCenterFocusStrong size={24} />
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Column 2: Service List */}
+                                <div className='flex flex-col py-4 pl-4 w-full md:w-[40%]'>
+                                    <ul>
+                                        {Services.map((service, index) => (
+                                            <li key={index} className="group">
                               <button
-                                className={`flex items-center justify-between w-full px-6 py-4 border-b border-gray-100 transition-all duration-200
-                                  ${hoveredIndex === index ? 'text-white' : 'text-black hover:bg-[#F5F7FA]'}
-                                `}
-                                style={{
-                                  fontFamily: 'Roboto, sans-serif',
-                                  fontSize: '14px',
-                                  fontWeight: 700,
-                                  background: 'none',
-                                  border: 'none',
-                                  outline: 'none',
-                                  cursor: 'pointer',
-                                  textAlign: 'left',
-                                  whiteSpace: 'nowrap',
-                                  boxShadow: hoveredIndex === index ? '2px 0 0 0 #1A1F39' : 'none',
-                                  borderRight: 'none',
-                                  marginRight: 0,
-                                  paddingRight: 0
-                                }}
-                              >
-                                <span style={{overflow: 'hidden', textOverflow: 'ellipsis', display: 'block', maxWidth: '90%'}}>
-                                  {item.headtitle}
-                                </span>
-                                <FaArrowRight
-                                  style={{
-                                    fontSize: '22px',
-                                    fontWeight: 'bold',
-                                    color: hoveredIndex === index ? '#fff' : '#000',
-                                    marginLeft: '12px'
-                                  }}
-                                />
+                                                    onClick={() => handleQuestionClick(index)}
+                                                    className={`text-black font-khula text-lg flex justify-between w-full pl-8 py-5 border-b ${selectedIndexOpen === index
+                                                        ? 'bg-brandBlue text-white border-l-8 border-cyan-500'
+                                                        : 'group-hover:bg-brandBlue group-hover:text-white group-hover:border-l-8 group-hover:border-cyan-500'
+                                                        }`}
+                                                >
+                                                    {service.headtitle}
+                                                    <FaArrowRight className={`right-0 text-2xl mr-5 ${selectedIndexOpen === index ? 'hidden' : 'group-hover:animate-fadeinleftsmall'}`} />
                               </button>
                             </li>
                           ))}
                         </ul>
                       </div>
-                      {/* Subitem Panel */}
-                      <div 
-                        style={{
-                            background: hoveredIndex !== null ? '#1A1F39' : '#fff',
-                            color: hoveredIndex !== null ? '#fff' : '#000',
-                            borderRadius: '0',
-                            padding: '32px 24px',
-                            minHeight: '100%',
-                            minWidth: '340px',
-                            maxWidth: '520px',
-                            flex: 1,
-                            width: '100%',
-                            overflow: 'visible',
-                            margin: 0,
-                            borderLeft: 'none',
-                            transition: 'background 0.2s, color 0.2s, width 0.2s'
-                        }}
-                        onMouseEnter={handleMouseEnter}
-                      >
-                        {hoveredIndex !== null ? (
-                          <>
-                            <h4 style={{ color: '#fff', fontWeight: 700, marginBottom: '16px' }}>
-                              &larr; {menuItems[hoveredIndex] ? menuItems[hoveredIndex].headtitle : ''}
+
+                                {/* Column 3: Sub-services Display */}
+                                <div className='flex flex-col w-full md:w-[40%] h-full relative'>
+                                    {selectedIndexOpen !== null && isAnswerVisible ? (
+                                        <div className={`inset-0 w-full h-[445px] transition-opacity duration-500 ease-in-out animate-fadeinleftsmall bg-brandBlue px-4 md:px-28 py-4`}>
+                                            <div className='flex items-center'>
+                                                <button
+                                                    onClick={handleCloseAnswer}
+                                                    className={`mt-6 -ml-5 mr-5 text-cyan-500 hover:text-cyan-700`}
+                                                >
+                                                    <RiArrowLeftSLine className='text-2xl' />
+                                                </button>
+                                                <h4 className="pt-10 mb-3 text-2xl font-bold text-white font-khula">
+                                                    {Services[selectedIndexOpen].headtitle}
                             </h4>
-                            <ul>
-                              {menuItems[hoveredIndex] && menuItems[hoveredIndex].subtitles.map((sub) => {
-                                const parentTitle = menuItems[hoveredIndex].title;
-                                const subPath = sub.keyword;
-                                const fullPath = `/services/${parentTitle}/${subPath}`;
-                                
-                                return (
+                                            </div>
+                                            <ul>
+                                                {Services[selectedIndexOpen].subtitles.map((sub) => (
+                                                    <li key={sub.subid}>
                                   <Link
-                                    key={sub.subid}
-                                    to={fullPath}
-                                    onClick={() => {
-                                      setIsServiceOpen(false);
-                                      setHoveredIndex(null);
-                                    }}
-                                    style={{ 
-                                      display: 'flex', 
-                                      alignItems: 'center', 
-                                      marginBottom: '12px', 
-                                      color: '#fff',
-                                      cursor: 'pointer',
-                                      transition: 'all 0.2s ease',
-                                      padding: '8px 12px',
-                                      borderRadius: '4px',
-                                      textDecoration: 'none'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'transparent';
-                                    }}
-                                  >
-                                    <span style={{ fontSize: '16px', color: '#b0b8d1', marginRight: '10px' }}>&#8250;</span>
+                                                            to={`/services/${Services[selectedIndexOpen].title.replace(/\s+/g, '-')}/${sub.keyword.replace(/\s+/g, '-')}`}
+                                                            state={{
+                                                                service_id: Services[selectedIndexOpen].id,
+                                                                subtitles_id: sub.subid
+                                                            }}
+                                                            className="mb-1 ml-8 text-lg text-white hover-underline-animation"
+                                                            onClick={handleLinkClick}
+                                                        >
                                     {sub.headsubtitle}
                                   </Link>
-                                );
-                              })}
+                                                    </li>
+                                                ))}
                             </ul>
-                          </>
-                        ) : (
-                          <div className="flex flex-col justify-center py-8 pl-8">
-                            <h4
-                              style={{
-                                fontFamily: 'Roboto, sans-serif',
-                                fontWeight: 700,
-                                fontSize: '16px',
-                                marginBottom: '10px',
-                                color: '#000'
-                              }}
-                            >
-                              Who We Serve
-                            </h4>
-                            <ul
-                              style={{
-                                fontFamily: 'Roboto, sans-serif',
-                                fontSize: '15px',
-                                color: '#1A1F39',
-                                fontWeight: 400,
-                                lineHeight: 1.7
-                              }}
-                            >
+                                        </div>
+                                    ) : (
+                                        <ul className="px-4 py-4 text-black md:px-28 md:py-16">
+                                            <h4 className='font-semibold md:text-3xl font-khula'>Who We Serve</h4>
                               {[
                                 'Technology',
                                 'Healthcare',
@@ -503,56 +491,20 @@ const Navbar = () => {
                                 'Financial Services',
                                 'Consumer',
                               ].map((item) => (
-                                <li key={item} style={{ display: 'flex', alignItems: 'center' }}>
-                                  <span style={{ fontSize: '16px', color: '#b0b8d1', marginRight: '10px' }}>&#8250;</span>
-                                  {item}
-                                </li>
+                                                <p
+                                                    key={item} className='flex w-full py-2 cursor-pointer text-md font-raleway items-center'>
+                                                    <span className='mr-2 text-lg font-bold'>&gt;</span>
+                                                    <span className='hover-underline-animation'>{item}</span>
+                                                </p>
                               ))}
                             </ul>
-                          </div>
                         )}
                       </div>
                     </div>
                 </div>
+                    </li>
+                </ul>
             )}
-
-            {/* Mobile Menu */}
-            <div className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-[9999] transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-500 ease-in-out lg:hidden`}>
-                <div className="w-[860px] bg-gradient-to-r from-[#1A1F39] to-[#06B6D4] rounded-[26px] px-6 py-4 space-y-3">
-                    <Link to="/services" 
-                        className="text-white hover:text-opacity-80 block px-3 py-2 text-[15px] font-normal"
-                    >
-                        Services
-                    </Link>
-                    <Link to="/rightsolutions" 
-                        className="text-white hover:text-opacity-80 block px-3 py-2 text-[15px] font-normal"
-                    >
-                        Right solutions
-                        </Link>
-                    <Link to="/freeconsultation" 
-                        className="text-white hover:text-opacity-80 block px-3 py-2 text-[15px] font-normal"
-                    >
-                        Free consultation
-                        </Link>
-                    <Link to="/about" 
-                        className="text-white hover:text-opacity-80 block px-3 py-2 text-[15px] font-normal"
-                    >
-                        Company
-                        </Link>
-                    <Link to="/refer-and-earn" 
-                        className="text-white hover:text-opacity-80 block px-3 py-2 text-[15px] font-normal"
-                    >
-                        Refer & earn
-                        </Link>
-                    <Link to="/expert"
-                        className="block text-center bg-white/10 backdrop-blur-sm
-                            text-white px-4 py-2 rounded-full text-[15px] font-normal 
-                            hover:bg-white/20 transition-all duration-300"
-                    >
-                        Speak to an expert
-                        </Link>
-                </div>
-            </div>
 
             {/* Overlay menu */}
             {isOpen && (

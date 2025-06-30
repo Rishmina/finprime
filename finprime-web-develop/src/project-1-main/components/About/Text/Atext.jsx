@@ -7,7 +7,7 @@ const Atext = () => {
       <div
         className='flex flex-col pb-6 pt-10 w-full md:w-4/5 sm:mx-auto sm:px-4'>
         <div className="flex justify-start">
-          <span className="bg-gradient-to-r from-[#181C2A] to-[#13B6D8] text-white text-lg font-bold px-8 py-3 rounded-full mb-4 shadow-lg flex items-center justify-center">The Story</span>
+          <span className="bg-gradient-to-r from-[#181C2A] to-[#13B6D8] text-white text-base font-bold px-5 py-2 rounded-full mb-4 shadow-lg flex items-center justify-center">The Story</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="h-[48px] min-h-full w-1 rounded bg-[#191F3A]" style={{ minHeight: '3.5rem' }}></div>

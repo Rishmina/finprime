@@ -53,7 +53,7 @@ const InputSection = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row justify-between items-center px-6 py-8 sm:px-16 sm:py-12 gap-8">
+    <div className="w-full flex flex-col md:flex-row justify-between items-center px-6 py-8 sm:px-16 sm:py-12 gap-8 mt-20 pr-6">
       {/* Form on the left */}
       <div className="md:w-1/2 w-full flex flex-col items-start justify-center mb-8 md:mb-0">
         <form onSubmit={handleSubmit} className="w-full max-w-xl flex flex-col items-start">
@@ -75,7 +75,7 @@ const InputSection = () => {
             className="w-full h-12 px-4 border border-black/25 rounded-sm focus:outline-none text-sm font-inter mb-3"
           />
           <div className="flex items-center mt-2 w-full justify-start">
-            <span className="text-xs font-inter mr-2 font-semibold">All about experience</span>
+            <span className="text-sm font-inter mr-2 font-bold">All about experience</span>
             <button
               type="submit"
               className="bg-blue-950 text-white px-4 py-1 rounded-full text-xs font-inter hover:bg-gradient-to-r hover:from-[#1A1F39] hover:to-[#06B6D4] transition-all duration-300"
@@ -93,7 +93,7 @@ const InputSection = () => {
       </div>
       {/* Heading/Button on the right */}
       <div className="md:w-1/2 w-full flex flex-col items-start justify-center">
-        <h4 className="text-2xl sm:text-4xl font-inter font-semibold leading-tight text-left mb-4">
+        <h4 className="text-3xl sm:text-4xl font-inter font-semibold leading-tight text-left mb-4">
           We Lead the AI Trend – Key Features<br />Supporting Accounting & Finance.
         </h4>
         <button

@@ -29,7 +29,7 @@ const Dropdown = () => {
   ];
 
   return (
-    <div className='w-[80%] md:w-2/3 mx-auto mt-1 xs:mt-10  sm:mb-14'>
+    <div className='w-[80%] md:w-2/3 mx-auto mt-24 mb-24'>
       <div className=' '> 
         <div className='space-y-5 '>
           {faqs.map((faq, index) => (

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 
 const Text4 = () => {
@@ -35,7 +34,7 @@ const Text4 = () => {
   return (
     <div 
     ref={fadeElementRef}
-    className={`w-full xl:max-w-5xl xl:mx-auto  text-center mt-20 lg:mt-40 xs:mt-32 pl-6 pr-4 sm:pl-0 sm:pr-0 sm:px-8 md:px-4 ${hasFadedIn ? 'animate-fadeinbottom' : ''}`}>
+    className={`w-full xl:max-w-5xl xl:mx-auto  text-center mt-32 lg:mt-40 xs:mt-32 pl-6 pr-4 sm:pl-0 sm:pr-0 sm:px-8 md:px-4 ${hasFadedIn ? 'animate-fadeinbottom' : ''}`}>
       <div className='mb-5 lg:mb-24 text-left'>
         <h3 className='text-[25px] font-inter sm:text-[34px] text-center lg:text-[46px] xl:text-5xl font-bold'>
          We always try to step outside comfort zone

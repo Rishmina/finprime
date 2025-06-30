@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom for navigation
-import logo from '../../images/Navbar/finprime-logo.svg';
+import finLogo from '../../images/Navbar/fin.png';
 
 const Top = () => {
 
@@ -19,7 +19,7 @@ const Top = () => {
       <div className=" mx-auto flex justify-between items-center">
         <div className="text-xl font-semibold">
         <Link to="/">
-            <img src={logo} alt="Logo" className="h-16 sm:h-14 mt-2 " />
+            <img src={finLogo} alt="Finprime Logo" className="h-16 sm:h-14 mt-2 " />
         </Link>
         </div>
 

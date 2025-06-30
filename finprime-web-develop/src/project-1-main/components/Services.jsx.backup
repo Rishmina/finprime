@@ -446,7 +446,7 @@ export const Services = [
             },
             {
                 subimg: INTERNATIONAL_TAXATION,
-                subalt: "International Taxation Services in Dubai, UAE",
+                subalt: "International Taxation Services in UAE",
                 subid: 2,
                 headsubtitle: "International Taxation",
                 subtitle: "Expert International Taxation Services in UAE - Compliance & Optimization",

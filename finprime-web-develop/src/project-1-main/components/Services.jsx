@@ -557,6 +557,55 @@ export const Services = [
     },
     {
         id: 4,
+        img: img3,
+        alt: "Banking Operations Excellence",
+        headtitle: "Banking Operations Excellence",
+        title: "banking-operations-excellence",
+        subtitles: [
+            {
+                subid: 1,
+                headsubtitle: "Retail Banking",
+                subtitle: "retail-banking",
+                keyword: "retail-banking",
+                subcontent: "Retail banking services for individuals and small businesses, focusing on customer experience and operational efficiency.",
+                subcontentbottom: ""
+            },
+            {
+                subid: 2,
+                headsubtitle: "Corporate & SME Banking",
+                subtitle: "corporate-sme-banking",
+                keyword: "corporate-sme-banking",
+                subcontent: "Comprehensive solutions for corporate and SME clients, including lending, cash management, and trade finance.",
+                subcontentbottom: ""
+            },
+            {
+                subid: 3,
+                headsubtitle: "Risk and Compliance",
+                subtitle: "risk-and-compliance",
+                keyword: "risk-and-compliance",
+                subcontent: "Risk management and compliance services to ensure regulatory adherence and operational resilience.",
+                subcontentbottom: ""
+            },
+            {
+                subid: 4,
+                headsubtitle: "Digital Banking",
+                subtitle: "digital-banking",
+                keyword: "digital-banking",
+                subcontent: "Digital transformation solutions for banks, including online platforms, mobile banking, and fintech integration.",
+                subcontentbottom: ""
+            },
+            {
+                subid: 5,
+                headsubtitle: "Customer Services and Relationship Management",
+                subtitle: "customer-services-relationship-management",
+                keyword: "customer-services-relationship-management",
+                subcontent: "Enhancing customer service operations and relationship management for improved satisfaction and loyalty.",
+                subcontentbottom: ""
+            }
+        ],
+    },
+    {
+        id: 5,
         img: img6,
         alt: "Regulatory & Compliance Services in UAE",
         headtitle: "Regulatory & Compliance",
@@ -630,7 +679,7 @@ export const Services = [
         ],
     },
     {
-        id: 5,
+        id: 6,
         img: img2,
         alt: "Company formation & Business Consultancy",
         headtitle: "Company formation & Business Consultancy",
@@ -786,7 +835,7 @@ export const Services = [
         ],
     },
     {
-        id: 6,
+        id: 7,
         img: img4,
         alt: "HR Consulting & Advisory",
         headtitle: "HR Consulting & Advisory",
