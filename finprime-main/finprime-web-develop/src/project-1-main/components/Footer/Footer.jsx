@@ -11,6 +11,8 @@ import { FaInstagramSquare, FaCamera } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdCenterFocusStrong } from 'react-icons/md';
 import finLogo from '../../images/Navbar/fin.png';
+import companyProfilePdf from '../pdf/finprime comapny profile final.pdf';
+import bankPresentationPdf from '../pdf/Bank Presentation Final.pdf';
 
 const Footer = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
@@ -68,7 +70,9 @@ const Footer = () => {
           <div className="w-full md:w-[300px] h-auto md:h-[455px] relative">
             <img src={companyProfileImage} alt="Company Profile" className="w-full h-full object-contain" />
             <button
-              onClick={() => window.open('/pdf/finprime-company-profile.pdf')}
+              onClick={() => {
+                window.open(companyProfilePdf, '_blank');
+              }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[-8px] w-[260px] h-[45px] rounded-[26px] flex items-center justify-between px-10 text-white font-inter text-xs transition-all hover:shadow-lg"
               style={{
                 background: 'linear-gradient(90deg, #1A1F39 0%, #06B6D4 100%)',
@@ -86,7 +90,9 @@ const Footer = () => {
           <div className="w-full md:w-[300px] h-auto md:h-[455px] relative">
             <img src={bankImage} alt="Banking Services" className="w-full h-full object-contain" />
             <button
-              onClick={() => window.open('/pdf/finprime-banking-services.pdf')}
+              onClick={() => {
+                window.open(bankPresentationPdf, '_blank');
+              }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[-8px] w-[260px] h-[45px] rounded-[26px] flex items-center justify-between px-6 gap-4 text-white font-inter text-[14px] transition-all hover:shadow-lg"
               style={{
                 background: 'linear-gradient(90deg, #1A1F39 0%, #06B6D4 100%)',
