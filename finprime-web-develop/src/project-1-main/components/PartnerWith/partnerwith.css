@@ -1,0 +1,29 @@
+@keyframes slideleft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-600%);
+        /* Adjust proportionally to the number of duplicates */
+    }
+}
+
+
+.partners-img-container {
+    display: flex;
+    gap: 70px;
+    animation: slideleft 100s linear infinite;
+    /* Adjust duration for smooth scrolling */
+}
+
+.partners-img {
+    width: 150px;
+    /* Adjust for logo size */
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    /* Prevent images from shrinking */
+}

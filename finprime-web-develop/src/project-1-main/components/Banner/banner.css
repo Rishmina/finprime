@@ -1,0 +1,66 @@
+.banner-container {
+    width: 100%;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  
+  .left-section h4 {
+    text-align: left;
+    color: white;
+  }
+  
+  .right-section p {
+    text-align: center;
+    color: white;
+  }
+  
+  .second-row {
+    background-color: white;
+    padding: 40px 20px;
+  }
+  
+  .left-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .youtube-container {
+    position: relative;
+  }
+  
+  /* Hide YouTube title bar at bottom */
+  #youtube-player {
+    position: relative;
+  }
+  
+  #youtube-player::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Adjust this value to cover the title bar */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* Additional styles to ensure iframe doesn't have white background */
+  #youtube-player iframe {
+    background-color: transparent !important;
+  }
+  

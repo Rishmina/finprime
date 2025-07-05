@@ -1,0 +1,102 @@
+.partners-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.partners-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.partners-carousel {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.partner-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  transition: transform 0.3s ease;
+}
+
+.partner-item:hover {
+  transform: scale(1.05);
+}
+
+.partner-logo {
+  height: 60px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 1;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.partner-logo:hover {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .partners-carousel {
+    gap: 2rem;
+    animation-duration: 20s;
+  }
+  
+  .partner-logo {
+    height: 50px;
+    max-width: 100px;
+  }
+  
+  .partner-item {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-carousel {
+    gap: 1.5rem;
+    animation-duration: 18s;
+  }
+  
+  .partner-logo {
+    height: 40px;
+    max-width: 80px;
+  }
+  
+  .partner-item {
+    padding: 0 0.25rem;
+  }
+}
+
+/* Pause animation on hover for better UX */
+.partners-carousel-wrapper:hover .partners-carousel {
+  animation-play-state: paused;
+}
+
+/* Smooth loading */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+  
